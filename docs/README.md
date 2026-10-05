@@ -25,3 +25,9 @@ nessun altro file di `laravel/config`, `laravel/Modules` o `.env.example` cita `
 - Testi delle viste in inglese e non tradotti (nessun `lang/` nel tema).
 - `screenshot.jpg` e' in realta' un PNG (da rinominare se il tema viene riattivato).
 - Dipendenze npm datate (Bootstrap 4, Vue 2, Laravel Mix 6): non aggiornare senza un consumatore.
+
+## Confine modello/dominio
+
+Four contiene solo viste e asset. Non definisce modelli né migrazioni. Le viste
+che consumano Trade rispettano la base del modulo (`Modules\Trade\Models\BaseModel`)
+e non introducono dipendenze dirette da `Illuminate\Database\Eloquent\Model`.
