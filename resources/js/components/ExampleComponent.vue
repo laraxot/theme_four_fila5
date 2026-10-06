@@ -1,23 +1,26 @@
-<template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-default">
-                    <div class="card-header">Example Component</div>
+<script setup>
+import { ref } from 'vue';
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
+defineProps({
+    title: {
+        type: String,
+        default: 'Example Component'
+    }
+});
+
+const count = ref(0);
+</script>
+
+<template>
+    <div class="p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+        <h3 class="text-lg font-medium text-gray-900 mb-2">{{ title }}</h3>
+        <p class="text-gray-600">This is an example Vue 3 component using script setup.</p>
+        <button class="btn-primary mt-4" @click="count++">
+            Count: {{ count }}
+        </button>
     </div>
 </template>
 
-<script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
-</script>
+<style scoped>
+/* Component-specific styles */
+</style>

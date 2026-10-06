@@ -8,10 +8,9 @@ status: unused
 
 ## Scopo
 
-Tema pubblico (`"type": "pub"` in `theme.json`) con viste Blade Bootstrap 4 per un'app
-domande e risposte: `questions/`, `answers/`, `auth/`, `home/`, `layouts/`, `shared/`,
-paginazione in `vendor/pagination/`. Asset: `resources/{js,sass}` compilati con Laravel Mix
-(`webpack.mix.js`) in `dist/`.
+Tema pubblico (`"type": "pub"` in `theme.json`) con viste Blade e asset frontend.
+Gli asset sono compilati con Vite da `resources/css/app.css` e `resources/js/app.js`
+in `public_html/themes/Four/`.
 
 ## Chi lo usa
 
