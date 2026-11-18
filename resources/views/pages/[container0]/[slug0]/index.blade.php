@@ -27,10 +27,13 @@ new class extends Component {
 
 <x-pub_theme::layouts.app>
     @volt('container0.view')
+    {{-- Livewire vuole un tag radice: senza il div una pagina senza blocchi dava RootTagMissingFromViewException (500). --}}
+    <div>
         <x-page
             side="content"
             :slug="$pageSlug"
             :data="$data"
         />
+    </div>
     @endvolt
 </x-pub_theme::layouts.app>
