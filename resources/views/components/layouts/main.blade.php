@@ -40,7 +40,7 @@
     @livewireStyles
     @filamentStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'],'themes/Four')
-    
+
     <!-- Custom Styles -->
     @stack('styles')
 </head>
@@ -76,34 +76,33 @@
         @if(isset($footer))
             {{ $footer }}
         @else
+            {{-- Niente contatti finti: descrizione e contatti arrivano dalla config del tenant (xra.description,
+                 xra.contact_email); se mancano la colonna non compare. --}}
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Company Info -->
                     <div>
                         <h3 class="text-lg font-semibold mb-4">{{ config('app.name', 'Laravel') }}</h3>
-                        <p class="text-gray-300 text-sm">
-                            {{ __('Your application description here.') }}
-                        </p>
+                        @if (filled(config('xra.description')))
+                            <p class="text-gray-300 text-sm">{{ config('xra.description') }}</p>
+                        @endif
                     </div>
 
-                    <!-- Quick Links -->
                     <div>
-                        <h3 class="text-lg font-semibold mb-4">{{ __('Quick Links') }}</h3>
                         <ul class="space-y-2 text-sm">
                             <li><a href="{{ route('home') }}" class="text-gray-300 hover:text-white transition-colors">{{ __('Home') }}</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">{{ __('About') }}</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">{{ __('Contact') }}</a></li>
+                            @if (filled(config('xra.login_url')))
+                                <li><a href="{{ config('xra.login_url') }}" class="text-gray-300 hover:text-white transition-colors">{{ __('Log in') }}</a></li>
+                            @endif
                         </ul>
                     </div>
 
-                    <!-- Contact Info -->
-                    <div>
-                        <h3 class="text-lg font-semibold mb-4">{{ __('Contact') }}</h3>
-                        <div class="text-sm text-gray-300 space-y-2">
-                            <p>{{ __('Email: info@example.com') }}</p>
-                            <p>{{ __('Phone: +1 234 567 890') }}</p>
+                    @if (filled(config('xra.contact_email')))
+                        <div>
+                            <div class="text-sm text-gray-300 space-y-2">
+                                <p><a href="mailto:{{ config('xra.contact_email') }}" class="hover:text-white">{{ config('xra.contact_email') }}</a></p>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
 
                 <!-- Copyright -->
@@ -117,11 +116,11 @@
     <!-- Scripts -->
     @filamentScripts(withCore: true)
     @stack('scripts')
-    
+
     <!-- Alpine.js -->
     <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
-    
+
     <!-- Custom Scripts -->
     @stack('custom-scripts')
 </body>
-</html> 
+</html>
