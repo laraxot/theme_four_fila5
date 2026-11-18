@@ -83,7 +83,8 @@
                     <div>
                         <h3 class="text-lg font-semibold mb-4">{{ config('app.name', 'Laravel') }}</h3>
                         @if (filled(config('xra.description')))
-                            <p class="text-gray-300 text-sm">{{ config('xra.description') }}</p>
+                            {{-- La frase della config fa da chiave JSON: lang/<lingua>.json dell'app la traduce. --}}
+                            <p class="text-gray-300 text-sm">{{ __((string) config('xra.description')) }}</p>
                         @endif
                     </div>
 
