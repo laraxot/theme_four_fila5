@@ -1,5 +1,5 @@
 {{-- Features Grid Block - Theme Zero (Fallback) --}}
-<section style="padding: 40px 20px; background: white;">
+<section @if(isset($anchor)) id="{{ $anchor }}" @endif style="padding: 40px 20px; background: white;">
     <div style="max-width: 1000px; margin: 0 auto;">
         @if(isset($title))
             <h2 style="font-size: 2rem; font-weight: bold; text-align: center; margin-bottom: 1rem; color: #1f2937;">

@@ -21,14 +21,10 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
     <!-- Styles -->
     @livewireStyles
     @filamentStyles
-    @vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Zero')
+    @vite(['resources/css/app.css', 'resources/js/app.js'], 'themes/Four')
 
     {{--
         This page renders a Filament schema widget (LoginWidget) outside of any
